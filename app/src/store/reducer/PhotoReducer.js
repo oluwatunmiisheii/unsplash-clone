@@ -1,4 +1,4 @@
-import { GET_PHOTOS_ERROR, GET_PHOTOS, SET_PHOTOS } from './../actionTypes/photos';
+import { SET_PHOTOS_ERROR, GET_PHOTOS, SET_PHOTOS } from './../actionTypes/photos';
 
 export const photoReducer = (state, action) => {
   switch (action.type) {
@@ -13,7 +13,7 @@ export const photoReducer = (state, action) => {
           loading: false,
           photos: [...action.payload]
         };
-        case GET_PHOTOS_ERROR:
+        case SET_PHOTOS_ERROR:
           return {
             ...state,
             loading: false,

@@ -1,4 +1,4 @@
-import { GET_PHOTOS_ERROR, GET_PHOTOS, SET_PHOTOS } from './../actionTypes/photos';
+import { SET_PHOTOS_ERROR, GET_PHOTOS, SET_PHOTOS } from './../actionTypes/photos';
 import { searchPhotos } from './../../services/search';
 
 const searchRequest = (_) => {
@@ -16,7 +16,7 @@ const searchRequestSuccessResponse = (payload) => {
 
 const searchRequestErrorResponse = (payload) => {
   return {
-    type: GET_PHOTOS_ERROR,
+    type: SET_PHOTOS_ERROR,
     payload
   }
 }
