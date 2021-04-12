@@ -1,7 +1,19 @@
-.photos-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 15px;
-  margin-top: -100px;
+.photos-grid__wrapper {
+  margin-top: -120px;
   z-index: 1;
+  .title {
+    font-size: 24px;
+    color: #1a1a1a;
+    font-weight: 300;
+    margin-bottom: 40px;
+    span {
+      text-transform: capitalize;
+      border-bottom: 1px dotted #1a1a1a;
+    }
+  }
+  .photos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+  }
 }
