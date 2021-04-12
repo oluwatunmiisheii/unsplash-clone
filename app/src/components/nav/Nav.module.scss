@@ -1,0 +1,15 @@
+.header {
+  .main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .nav-content__left {
+      .nav-hero {
+        font-size: 20px;
+      }
+    }
+    .nav-content__right {
+      
+    }
+  }
+}

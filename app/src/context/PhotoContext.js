@@ -13,9 +13,10 @@ const PhotoContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(photoReducer, initialState)
   
   return (
-    <PhotoContextProvider.Provider value={{ state, dispatch }}>
+    <PhotoContext.Provider value={{ state, dispatch }}>
       {children}
-    </PhotoContextProvider.Provider>
+    </PhotoContext.Provider>
   )
 }
+
 export default PhotoContextProvider
