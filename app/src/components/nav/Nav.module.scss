@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 .header {
   .main-nav {
     display: flex;
@@ -5,11 +7,12 @@
     justify-content: space-between;
     .nav-content__left {
       .nav-hero {
-        font-size: 20px;
+        font-size: 36px;
+        font-family: 'Pacifico', cursive;
       }
     }
     .nav-content__right {
-      
+      display: block;
     }
   }
 }
