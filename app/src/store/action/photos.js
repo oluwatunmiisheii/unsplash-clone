@@ -21,14 +21,14 @@ const searchRequestErrorResponse = (payload) => {
   }
 }
 
-export const getPhotosAsync = async (dispatch, query) => {
+export const searchPhotosAsync = async (dispatch, query) => {
   dispatch(searchRequest)
   try {
     dispatch(GET_PHOTOS)
-    const apiResponse = searchPhotos(query)
-    dispatch(searchRequestSuccessResponse(apiResponse))
-  } catch (getPhotosAsyncError) {
-    dispatch(searchRequestErrorResponse(error.response.data.message) || 'Something went wrong')
-    throw new Error(error.response.data.message || 'something went wrong')
+    const {data: photos} = await searchPhotos(query)
+    console.log(photos)
+    dispatch(searchRequestSuccessResponse(photos))
+  } catch (_) {
+    dispatch(searchRequestErrorResponse('Something went wrong'))
   }
 }
