@@ -1,0 +1,31 @@
+.photo-card__wrapper {
+  display: flex;
+  flex-direction: column;
+  .photo-card__image {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+    border-top-left-radius: .375rem;
+    border-top-right-radius: .375rem;
+  }
+  .photo-card__details {
+    padding: 20px;
+    border-bottom-left-radius: .375rem;
+    border-bottom-right-radius: .375rem;
+    background-color: #f2f2f2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .user-image {
+      height: 35px;
+      width: 35px;
+      object-fit: cover;
+      border-radius: 100%;
+    }
+    .user-name {
+      font-size: 13px;
+      font-weight: 600;
+    }
+  }
+}
