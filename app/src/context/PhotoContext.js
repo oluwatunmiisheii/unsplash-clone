@@ -7,7 +7,8 @@ const PhotoContextProvider = ({ children }) => {
   const initialState = {
     loading: true,
     photos: [],
-    error: null
+    error: null,
+    query: null
   }
 
   const [state, dispatch] = useReducer(photoReducer, initialState)
