@@ -1,15 +1,16 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { PhotoContext } from './../context/PhotoContext';
 import { searchPhotosAsync } from './../store/action/photos';
 import PhotoCard from './../components/photoCard/PhotoCard';
 import styles from './Photos.module.scss';
+import NoContent from './../components/noContent/NoContent';
 
 const PhotoList = () => {
-  const {dispatch, state} = useContext(PhotoContext)
+  const { dispatch, state } = useContext(PhotoContext)
+  const [defaultSearchQuery] = useState('nigeria')
 
-  
   const searchForPhotos = async (_) => {
-    await searchPhotosAsync(dispatch, 'lagos')
+    await searchPhotosAsync(dispatch, defaultSearchQuery)
   }
 
   useEffect((_) => {
@@ -19,7 +20,7 @@ const PhotoList = () => {
   if(state.loading) {
     return (
       <div className="container">
-        <div className={styles["photos-grid"]}></div>
+        <div className={styles["photos-grid"]}>Loading</div>
       </div>
     )
   }
@@ -29,13 +30,20 @@ const PhotoList = () => {
       {!state.error && (
         state.photos.length > 0 ? (
           <div className="container">
-            <div className={styles["photos-grid"]}>
-              {state.photos.map(photo => (
-                <PhotoCard photo={photo} key={photo.id} />
-              ))}
+            <div className={styles["photos-grid__wrapper"]}>
+              <h5 className={styles["title"]}>Showing results for <span><strong>{state.query}</strong></span></h5>
+              <div className={styles["photos-grid"]}>
+                {state.photos.map(photo => (
+                  <PhotoCard photo={photo} key={photo.id} />
+                ))}
+              </div>
             </div>
           </div>
-        ) : 'no photos'
+        ) : (
+          <div className="container">
+            <NoContent query={state.query} />
+          </div>
+        )
       )}
     </>
   );
