@@ -25,9 +25,8 @@ export const searchPhotosAsync = async (dispatch, query) => {
   dispatch(searchRequest)
   try {
     dispatch(GET_PHOTOS)
-    const {data: photos} = await searchPhotos(query)
-    console.log(photos)
-    dispatch(searchRequestSuccessResponse(photos))
+    const {data} = await searchPhotos(query)
+    dispatch(searchRequestSuccessResponse({photos: data.results, query: query}))
   } catch (_) {
     dispatch(searchRequestErrorResponse('Something went wrong'))
   }
