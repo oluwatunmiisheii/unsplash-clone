@@ -11,7 +11,8 @@ export const photoReducer = (state, action) => {
         return {
           ...state,
           loading: false,
-          photos: [...action.payload]
+          photos: [...action.payload.photos],
+          query: action.payload.query
         };
         case SET_PHOTOS_ERROR:
           return {
